@@ -6,7 +6,9 @@ import { CreateCoffeeDto } from './dto/create-coffee.dto';
 import { UpdateCoffeeDto } from './dto/update-coffee.dto';
 import { ParseIntPipe } from '../common/pipes/parse-int.pipe';
 import { Protocol } from '../common/decorators/protocol.decorator';
+import { ApiForbiddenResponse, ApiTags } from '@nestjs/swagger';
 
+@ApiTags('coffees')
 @Controller('coffees')
 export class CoffeesController {
 
@@ -15,6 +17,7 @@ export class CoffeesController {
     }
 
     // @SetMetadata('isPublic', true)
+    @ApiForbiddenResponse({description: 'Forbidden'})
     @Public()
     @Get()
     findAll(@Protocol() protocol: string, @Query() paginatorQuery: PaginationQueryDto) {

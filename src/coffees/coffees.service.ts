@@ -1,16 +1,17 @@
 import { Inject, Injectable, NotFoundException, Scope } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { InjectRepository } from '@nestjs/typeorm';
-import { PaginationQueryDto } from 'src/common/dto/pagination-query.dto';
-import { Event } from 'src/events/entities/event.entity';
+import { PaginationQueryDto } from '../common/dto/pagination-query.dto';
+import { Event } from '../events/entities/event.entity';
 import { DataSource, Repository } from 'typeorm';
-import { COFFEE_BRANDS } from './coffees.constants';
+// import { COFFEE_BRANDS } from './coffees.constants';
 import { CreateCoffeeDto } from './dto/create-coffee.dto';
 import { UpdateCoffeeDto } from './dto/update-coffee.dto';
 import { Coffee } from './entities/coffee.entity';
 import { Flavor } from './entities/flavor.entity';
 
-@Injectable({scope: Scope.REQUEST})
+// @Injectable({scope: Scope.REQUEST})
+@Injectable()
 export class CoffeesService {
     // private coffees: Coffee[] = [
     //     {
@@ -27,11 +28,11 @@ export class CoffeesService {
         @InjectRepository(Flavor)
         private readonly flavorRepository: Repository<Flavor>,
         private readonly dataSource: DataSource,
-        @Inject(COFFEE_BRANDS) coffeeBrands: string[],
+        // @Inject(COFFEE_BRANDS) coffeeBrands: string[],
         private readonly configService: ConfigService
     ) {
-        const databaseHost = this.configService.get<string>('database.host', 'localhost');
-        console.log(databaseHost);
+        // const databaseHost = this.configService.get<string>('database.host', 'localhost');
+        // console.log(databaseHost);
         
     }
 

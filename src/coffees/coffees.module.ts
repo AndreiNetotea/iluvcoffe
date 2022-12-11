@@ -14,10 +14,11 @@ import { Flavor } from './entities/flavor.entity';
   controllers: [CoffeesController],
   providers: [
     CoffeesService,
-    {
-      provide: COFFEE_BRANDS,
-      useFactory: () =>  ['buddy brew', 'nestcafe']
-    }],
+    // {
+    //   provide: COFFEE_BRANDS,
+    //   useFactory: () =>  ['buddy brew', 'nestcafe']
+    // }
+  ],
   exports: [CoffeesService]
 })
 export class CoffeesModule {}

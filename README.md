@@ -31,5 +31,8 @@ $ npm run test:e2e
 
 # test coverage
 $ npm run test:cov
+
+# run specific test in watch mode 
+$ npm run test:watch -- coffees.service
 ```
 
